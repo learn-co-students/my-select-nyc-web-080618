@@ -1,3 +1,10 @@
 def my_select(collection)
- # your code here!
+  retVal = []
+  collection.each_with_index do |e, i|
+    if yield(e)
+      retVal.push(collection[i])
+      i += 1
+    end
+  end
+  return retVal
 end
